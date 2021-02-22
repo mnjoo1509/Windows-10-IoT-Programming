@@ -110,7 +110,7 @@ namespace ThreadingSample
         {
             var workItemHandler = new WorkItemHandler((arg) => { GetReading(); });
 
-            await ThreadPool.RunAsync(workItemHandler);
+            await Windows.System.Threading.ThreadPool.RunAsync(workItemHandler);
         }
 
         // 타이머를 사용해 모방한 센서값 판독
