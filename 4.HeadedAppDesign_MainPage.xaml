@@ -9,32 +9,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.Resources>
-        <Style TargetType="Button">
-            <Setter Property="BorderThickness"
-                    Value="0.5" />
-            <Setter Property="BorderBrush"
-                    Value="Black" />
-            <Setter Property="FontSize"
-                    Value="22" />
-            <Setter Property="Margin"
-                    Value="10,10,0,0" />
-            <Setter Property="Foreground"
-                    Value="White" />
-            <Setter Property="Background">
-                <Setter.Value>
-                    <LinearGradientBrush EndPoint="1,0"
-                                         StartPoint="0,0">
-                        <GradientStop Color="Yellow"
-                                      Offset="0" />
-                        <GradientStop Color="Red"
-                                      Offset="0.25" />
-                        <GradientStop Color="Blue"
-                                      Offset="0.75" />
-                        <GradientStop Color="LimeGreen"
-                                      Offset="1" />
-                    </LinearGradientBrush>
-                </Setter.Value>
-            </Setter>
+        <Style TargetType="Button"
+               x:Key="ColoredButtonStyle">
         </Style>
     </Page.Resources>
     
@@ -48,10 +24,10 @@
         <local:MyButton />
 
         <Button Content="Internet of Things" />
-
+        
         <Button Content="Windows 10 IoT Core"
                 FontSize="12"
                 Width="190" />
-
+        
     </StackPanel>
 </Page>
