@@ -7,33 +7,47 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
 
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BorderThickness"
+                    Value="0.5" />
+            <Setter Property="BorderBrush"
+                    Value="Black" />
+            <Setter Property="FontSize"
+                    Value="22" />
+            <Setter Property="Margin"
+                    Value="10,10,0,0" />
+            <Setter Property="Foreground"
+                    Value="White" />
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="1,0"
+                                         StartPoint="0,0">
+                        <GradientStop Color="Yellow"
+                                      Offset="0" />
+                        <GradientStop Color="Red"
+                                      Offset="0.25" />
+                        <GradientStop Color="Blue"
+                                      Offset="0.75" />
+                        <GradientStop Color="LimeGreen"
+                                      Offset="1" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Button x:Name="DefaultButton"
                 Content="Change visual state"
                 HorizontalAlignment="Left"
                 Margin="10,10,0,0"
                 VerticalAlignment="Top" />
-        
+
         <local:MyButton />
 
-        <Button FontSize="22"
-                Foreground="White"
-                Content="Internet of Things">
-            <Button.Background>
-                <LinearGradientBrush StartPoint="0,0"
-                                     EndPoint="1,0">
-                    <GradientStop Color="Yellow"
-                                  Offset="0.0" />
-                    <GradientStop Color="Red"
-                                  Offset="0.25" />
-                    <GradientStop Color="Blue"
-                                  Offset="0.75" />
-                    <GradientStop Color="LimeGreen"
-                                  Offset="1.0" />
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
+        <Button Content="Internet of Things" />
+        
     </StackPanel>
 </Page>
