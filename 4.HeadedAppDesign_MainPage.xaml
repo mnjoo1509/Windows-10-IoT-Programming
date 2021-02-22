@@ -48,6 +48,10 @@
         <local:MyButton />
 
         <Button Content="Internet of Things" />
-        
+
+        <Button Content="Windows 10 IoT Core"
+                FontSize="12"
+                Width="190" />
+
     </StackPanel>
 </Page>
