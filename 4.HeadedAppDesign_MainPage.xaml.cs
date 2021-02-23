@@ -14,7 +14,6 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 using Windows.UI;
-using Windows.UI.Xaml.Media;
 
 // 빈 페이지 항목 템플릿에 대한 설명은 https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x412에 나와 있습니다.
 
@@ -26,6 +25,8 @@ namespace HeadedAppDesign
     public sealed partial class MainPage : Page
     {
         private Style coloredButtonStyle = new Style(typeof(Button));
+        private const string pointerOverVisualStateName = "PointerOver";
+        private const string normalVisualStateName = "Normal";
 
         public MainPage()
         {
@@ -33,7 +34,7 @@ namespace HeadedAppDesign
 
             SetStylePropertySetters();
 
-            DefaultButton.Style = coloredButtonStyle;
+            GoToStateButton.Style = coloredButtonStyle;
         }
 
         private void SetStylePropertySetters()
