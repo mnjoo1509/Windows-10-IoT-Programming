@@ -102,20 +102,23 @@
     </Page.Resources>
 
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="DefaultButton"
+        <Button x:Name="GoToStateButton"
                 Content="Change visual state"
                 HorizontalAlignment="Left"
                 Margin="10,10,0,0"
-                VerticalAlignment="Top" />
+                VerticalAlignment="Top"
+                Click="GoToStateButton_Click" />
 
         <local:MyButton />
 
-        <Button Content="Internet of Things"
-                Style="{StaticResource ColoredButtonStyle}"/>
+        <Button x:Name="IoTButton"
+                Content="Internet of Things"
+                Style="{StaticResource ColoredButtonStyle}" />
 
-        <Button Content="Windows 10 IoT Core"
+        <Button x:Name="Windows10IoTCoreButton"
+                Content="Windows 10 IoT Core"
                 FontSize="12"
                 Width="190"
-                Style="{StaticResource ColoredButtonStyle}"/>
+                Style="{StaticResource ColoredButtonStyle}" />
     </StackPanel>
 </Page>
