@@ -67,5 +67,31 @@ namespace HeadedAppDesign
 
             return new LinearGradientBrush(gradientStopCollection, 0.0);
         }
+        private void GoToStateButton_Click(object sender, RoutedEventArgs e)
+        {
+            SwapButtonVisualState(IoTButton);
+            SwapButtonVisualState(Windows10IoTCoreButton);
+        }
+
+        private void SwapButtonVisualState(Button button)
+        {
+            string newVisualState = pointerOverVisualStateName;
+
+            if (button.Tag != null)
+            {
+                if (button.Tag.ToString().Contains(pointerOverVisualStateName))
+                {
+                    newVisualState = normalVisualStateName;
+                }
+                else
+                {
+                    newVisualState = pointerOverVisualStateName;
+                }
+            }
+
+            VisualStateManager.GoToState(button, newVisualState, false);
+
+            button.Tag = newVisualState;
+        }
     }
 }
