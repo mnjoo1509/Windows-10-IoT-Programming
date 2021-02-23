@@ -98,6 +98,22 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+            <Style x:Key="EllipsisButtonStyle"
+                   TargetType="Button"
+                   BasedOn="{StaticResource ColoredButtonStyle}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Margin="10">
+                                <Ellipse Fill="{TemplateBinding Background}"
+                                         Margin="-10" />
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </Page.Resources>
 
@@ -119,6 +135,6 @@
                 Content="Windows 10 IoT Core"
                 FontSize="12"
                 Width="190"
-                Style="{StaticResource ColoredButtonStyle}" />
+                Style="{StaticResource EllipsisButtonStyle}" />
     </StackPanel>
 </Page>
