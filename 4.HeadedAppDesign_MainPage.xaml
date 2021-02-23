@@ -59,10 +59,48 @@
                         Value="{ThemeResource ForegroundColor}" />
                 <Setter Property="Background"
                         Value="{ThemeResource ColoredLinearGradientBrush}" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid x:Name="RootGrid"
+                                  Background="{TemplateBinding Background}">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal" />
+
+                                        <VisualState x:Name="PointerOver">
+                                            <VisualState.Setters>
+                                                <Setter Target="RootGrid.Background"
+                                                        Value="{ThemeResource ForegroundColor}"/>
+                                                <Setter Target="ContentPresenter.Foreground"
+                                                        Value="{ThemeResource ColoredLinearGradientBrush}" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <SwipeHintThemeAnimation ToHorizontalOffset="5"
+                                                                         ToVerticalOffset="0"
+                                                                         TargetName="RootGrid" />
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <ContentPresenter x:Name="ContentPresenter"
+                                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                                  Content="{TemplateBinding Content}"
+                                                  Padding="{TemplateBinding Padding}"
+                                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
             </Style>
         </ResourceDictionary>
     </Page.Resources>
-    
+
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Button x:Name="DefaultButton"
                 Content="Change visual state"
@@ -74,7 +112,7 @@
 
         <Button Content="Internet of Things"
                 Style="{StaticResource ColoredButtonStyle}"/>
-        
+
         <Button Content="Windows 10 IoT Core"
                 FontSize="12"
                 Width="190"
