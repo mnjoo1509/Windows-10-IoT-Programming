@@ -9,9 +9,58 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.Resources>
-        <Style TargetType="Button"
-               x:Key="ColoredButtonStyle">
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <Color x:Key="ForegroundColor">White</Color>
+
+                    <LinearGradientBrush x:Key="ColoredLinearGradientBrush"
+                                     EndPoint="1,0"
+                                     StartPoint="0,0">
+                        <GradientStop Color="Yellow"
+                                  Offset="0" />
+                        <GradientStop Color="Red"
+                                  Offset="0.25" />
+                        <GradientStop Color="Blue"
+                                  Offset="0.75" />
+                        <GradientStop Color="LimeGreen"
+                                  Offset="1" />
+                    </LinearGradientBrush>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Dark">
+                    <Color x:Key="ForegroundColor">Yellow</Color>
+
+                    <LinearGradientBrush x:Key="ColoredLinearGradientBrush"
+                                         EndPoint="1,0"
+                                         StartPoint="0,0">
+                        <GradientStop Color="LimeGreen"
+                                      Offset="0" />
+                        <GradientStop Color="Blue"
+                                      Offset="0.25" />
+                        <GradientStop Color="Red"
+                                      Offset="0.75" />
+                        <GradientStop Color="Yellow"
+                                      Offset="1" />
+                    </LinearGradientBrush>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+
+            <Style TargetType="Button"
+                   x:Key="ColoredButtonStyle">
+                <Setter Property="BorderThickness"
+                        Value="0.5" />
+                <Setter Property="BorderBrush"
+                        Value="Black" />
+                <Setter Property="FontSize"
+                        Value="22" />
+                <Setter Property="Margin"
+                        Value="10,10,0,0" />
+                <Setter Property="Foreground"
+                        Value="{ThemeResource ForegroundColor}" />
+                <Setter Property="Background"
+                        Value="{ThemeResource ColoredLinearGradientBrush}" />
+            </Style>
+        </ResourceDictionary>
     </Page.Resources>
     
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -23,11 +72,12 @@
 
         <local:MyButton />
 
-        <Button Content="Internet of Things" />
+        <Button Content="Internet of Things"
+                Style="{StaticResource ColoredButtonStyle}"/>
         
         <Button Content="Windows 10 IoT Core"
                 FontSize="12"
-                Width="190" />
-        
+                Width="190"
+                Style="{StaticResource ColoredButtonStyle}"/>
     </StackPanel>
 </Page>
