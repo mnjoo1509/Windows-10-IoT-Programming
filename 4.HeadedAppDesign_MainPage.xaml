@@ -140,6 +140,24 @@
     </Page.Resources>
 
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="Translated">
+                    <VisualState.Setters>
+                        <Setter Target="GoToStateButton.RenderTransform">
+                            <Setter.Value>
+                                <TranslateTransform X="100" />
+                            </Setter.Value>
+                        </Setter>
+                    </VisualState.Setters>
+
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{Binding IsChecked, ElementName=StateTriggerCheckBox}" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        
         <Button x:Name="GoToStateButton"
                 Content="Change visual state"
                 HorizontalAlignment="Left"
@@ -158,5 +176,9 @@
                 FontSize="12"
                 Width="190"
                 Style="{StaticResource EllipsisButtonStyle}" />
+
+        <CheckBox x:Name="StateTriggerCheckBox"
+                  Content="Is state trigger active?"
+                  Margin="10" />
     </StackPanel>
 </Page>
