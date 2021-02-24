@@ -29,28 +29,28 @@ namespace BinaryRepresentation
 
         public short BitToSet
         {
-            get { return BitToSet; }
+            get { return bitToSet; }
             set { SetBit(value); }
         }
 
         public short BitToClear
         {
-            get { return BitToClear; }
+            get { return bitToClear; }
             set { ClearBit(value); }
         }
 
         public short InputValue
         {
-            get { return InputValue; }
-            set { OutputValue = InputValue = value; }
+            get { return inputValue; }
+            set { OutputValue = inputValue = value; }
         }
 
         public short OutputValue
         {
-            get { return OutputValue; }
+            get { return outputValue; }
             set 
             { 
-                OutputValue = value;
+                outputValue = value;
                 OnPropertyChanged();
             }
         }
