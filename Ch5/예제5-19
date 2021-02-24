@@ -1,0 +1,44 @@
+public static void BitArrayBitwiseManipulation()
+        {
+            byte a = 0; //Binary: 0000
+            byte b = 5; //Binary: 0101
+            byte c = 10; //Binary: 1010
+
+            //비트 배열 만들기
+            var aBitArray = new BitArray(new byte[] { a });
+            var bBitArray = new BitArray(new byte[] { b });
+            var cBitArray = new BitArray(new byte[] { c });
+
+            //비트 합
+            cBitArray.Or(aBitArray);
+            DebugBitArrayValue(cBitArray);
+
+            //비트 배타적 합
+            cBitArray.Xor(bBitArray);
+            DebugBitArrayValue(cBitArray);
+
+            //비트 곱
+            cBitArray.And(bBitArray);
+            DebugBitArrayValue(cBitArray);
+        }
+
+        private static byte GetByteValueFromBitArray(BitArray bitArray)
+        {
+            var buffer = new byte[1];
+
+            //변환 수행
+            ((ICollection)bitArray).CopyTo(buffer, 0);
+
+            return buffer[0];
+        }
+
+        private static void DebugBitArrayValue(BitArray bitArray)
+        {
+            var value = GetByteValueFromBitArray(bitArray);
+
+            var binaryValue = Convert.ToString(value, 2);
+
+            var debugString = string.Format("{0} Binary: {1}", value, binaryValue);
+
+            System.Diagnostics.Debug.WriteLine(debugString);
+        }
