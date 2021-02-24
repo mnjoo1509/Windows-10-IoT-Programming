@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Data;
+using System.Collections;
+
+using System.Linq;
 
 namespace BinaryRepresentation
 {
@@ -19,14 +22,22 @@ namespace BinaryRepresentation
                 short inputValue;
                 if (short.TryParse(value.ToString(), out inputValue))
                 {
-                    const int bitcount = 16;
+                    //const int bitcount = 16;
 
                     //result = System.Convert.ToString(inputValue, 2);
                     //result = result.PadLeft(bitcount, '0');
 
-                    for (int i = 0; i < bitcount; i++)
+                    //for (int i = 0; i < bitcount; i++)
+                    //{
+                    //    result += IsBitSet(inputValue, i);
+                    //}
+
+                    var bytes = BitConverter.GetBytes(inputValue);
+                    var bitArray = new BitArray(bytes);
+
+                    for (int i = 0; i < bitArray.Length; i++)
                     {
-                        result += IsBitSet(inputValue, i);
+                        result += BoolToBinaryString(bitArray[i]);
                     }
                 }
             }
@@ -43,6 +54,11 @@ namespace BinaryRepresentation
             object parameter, string language)
         {
             throw new NotImplementedException();
+        }
+
+        private string BoolToBinaryString(bool value)
+        {
+            return value ? "1" : "0";
         }
     }
 }
