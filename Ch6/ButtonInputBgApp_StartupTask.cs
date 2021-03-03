@@ -24,7 +24,7 @@ namespace ButtonInputBgApp
             {
                 buttonPin.DebounceTimeout = TimeSpan.FromMilliseconds(debounceTime);
                 buttonPin.ValueChanged += ButtonPin_ValueChanged;
-                
+
                 ledPin = ConfigureGpioPin(ledPinNumber, GpioPinDriveMode.Output);
                 if (ledPin != null)
                 {
@@ -34,8 +34,8 @@ namespace ButtonInputBgApp
             else
             {
                 bgTaskDeferral.Complete();
-            }            
-        }        
+            }
+        }
 
         private GpioPin ConfigureGpioPin(int pinNumber, GpioPinDriveMode driveMode)
         {
@@ -70,7 +70,7 @@ namespace ButtonInputBgApp
             }
 
             return newPinValue;
-        }        
+        }
 
         private void ButtonPin_ValueChanged(GpioPin sender, GpioPinValueChangedEventArgs args)
         {
