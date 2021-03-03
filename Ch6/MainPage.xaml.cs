@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+using SenseHatIO.SenseHatLedArray;
+
 namespace SenseHatIO
 {
     public sealed partial class MainPage : Page, INotifyPropertyChanged
@@ -71,8 +73,8 @@ namespace SenseHatIO
                 joystick.ButtonPressed += Joystick_ButtonPressed;
 
                 ledArray = new LedArray(device);
-                //BeginRgbTest();
-                UpdateDevice();
+                BeginRgbTest();
+                //UpdateDevice();
             }
             else
             {
