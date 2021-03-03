@@ -1,0 +1,62 @@
+<UserControl x:Class="SenseHatIO.Controls.JoystickControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:SenseHatIO"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignHeight="175"
+             d:DesignWidth="175">
+
+    <UserControl.Resources>
+        <x:Double x:Key="SquareSize">50</x:Double>
+        
+        <Style TargetType="Rectangle">
+            <Setter Property="Width"
+                    Value="{StaticResource SquareSize}" />
+            <Setter Property="Height"
+                    Value="{StaticResource SquareSize}" />
+            <Setter Property="Margin"
+                    Value="5" />
+        </Style>
+
+        <Style TargetType="Grid">
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Rectangle x:Name="Up"
+                   Grid.Column="1" />
+
+        <Rectangle x:Name="Left"
+                   Grid.Row="1" />
+
+        <Rectangle x:Name="Enter"
+                   Grid.Row="1"
+                   Grid.Column="1" />
+
+        <Rectangle x:Name="Right"
+                   Grid.Row="1"
+                   Grid.Column="2" />
+
+        <Rectangle x:Name="Down"
+                   Grid.Row="2"
+                   Grid.Column="1" />
+    </Grid>
+</UserControl>
