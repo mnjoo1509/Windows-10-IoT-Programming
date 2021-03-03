@@ -6,97 +6,28 @@
 
     <Application.Resources>
         <ResourceDictionary>
-            <Style TargetType="Button"
-                   x:Key="ColoredButtonStyle">
-                <Setter Property="BorderThickness"
-                        Value="0.5" />
-                <Setter Property="BorderBrush"
-                        Value="Black" />
-                <Setter Property="FontSize"
-                        Value="22" />
-                <Setter Property="Margin"
-                        Value="10,10,0,0" />
-                <Setter Property="Foreground"
-                        Value="{ThemeResource ForegroundColor}" />
-                <Setter Property="Background"
-                        Value="{ThemeResource ColoredLinearGradientBrush}" />
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="Button">
-                            <Grid x:Name="RootGrid"
-                                  Background="{TemplateBinding Background}">
-                                <VisualStateManager.VisualStateGroups>
-                                    <VisualStateGroup x:Name="CommonStates">
-                                        <VisualState x:Name="Normal" />
+        //이 부분은 예제 4-27과 동일하다.
 
-                                        <VisualState x:Name="PointerOver">
-                                            <VisualState.Setters>
-                                                <Setter Target="RootGrid.Background"
-                                                        Value="{ThemeResource ForegroundColor}"/>
-                                                <Setter Target="ContentPresenter.Foreground"
-                                                        Value="{ThemeResource ColoredLinearGradientBrush}" />
-                                            </VisualState.Setters>
-                                        </VisualState>
-
-                                        <VisualState x:Name="Pressed">
-                                            <Storyboard>
-                                                <SwipeHintThemeAnimation ToHorizontalOffset="5"
-                                                                         ToVerticalOffset="0"
-                                                                         TargetName="RootGrid" />
-                                            </Storyboard>
-                                        </VisualState>
-
-                                        <VisualState x:Name="LayoutChanged">
-                                            <VisualState.Setters>
-                                                <Setter Target="RootGrid.RenderTransfrom">
-                                                    <Setter.Value>
-                                                        <ScaleTransform ScaleX="1.15"
-                                                                        ScaleY="1.15" />
-                                                    </Setter.Value>
-                                                </Setter>
-                                            </VisualState.Setters>
-
-                                            <VisualState.StateTriggers>
-                                                <AdaptiveTrigger MinWindowHeight="350" />
-                                            </VisualState.StateTriggers>
-
-                                        </VisualState>
-
-                                    </VisualStateGroup>
-
-                                </VisualStateManager.VisualStateGroups>
-                                <ContentPresenter x:Name="ContentPresenter"
-                                                  BorderBrush="{TemplateBinding BorderBrush}"
-                                                  BorderThickness="{TemplateBinding BorderThickness}"
-                                                  Content="{TemplateBinding Content}"
-                                                  Padding="{TemplateBinding Padding}"
-                                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            </Grid>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-            <Style x:Key="EllipsisButtonStyle"
+            <!--<Style x:Key="EllipsisButtonStyle"
                    TargetType="Button"
                    BasedOn="{StaticResource ColoredButtonStyle}">
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="Button">
                             <Grid Margin="10">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="159*"/>
-                                    <ColumnDefinition Width="11*"/>
-                                </Grid.ColumnDefinitions>
                                 <Ellipse Fill="{TemplateBinding Background}"
-                                         Margin="-10,-10,-10,-10" Grid.ColumnSpan="2" />
-                                <ContentPresenter HorizontalAlignment="Left"
-                                                  VerticalAlignment="Center" Margin="29,0,0,0" />
+                                         Margin="-10" />
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center" />
                             </Grid>
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-            </Style>
+            </Style>-->
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="MyDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
