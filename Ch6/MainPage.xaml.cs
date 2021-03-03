@@ -73,8 +73,8 @@ namespace SenseHatIO
                 joystick.ButtonPressed += Joystick_ButtonPressed;
 
                 ledArray = new LedArray(device);
-                BeginRgbTest();
-                //UpdateDevice();
+                //BeginRgbTest();
+                UpdateDevice();
             }
             else
             {
